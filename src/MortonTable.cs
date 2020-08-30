@@ -1,9 +1,12 @@
 namespace CSharp_PVRTC_EncDec
 {
 
+	/// <summary>
+	/// Morton space filling curve, see https://en.wikipedia.org/wiki/Z-order_curve
+	/// </summary>
 	public static class MortonTable  
 	{
-		public static readonly ushort[] MORTON_TABLE =
+		private static readonly ushort[] MORTON_TABLE =
 		{
 			0x0000, 0x0001, 0x0004, 0x0005, 0x0010, 0x0011, 0x0014, 0x0015,
 			0x0040, 0x0041, 0x0044, 0x0045, 0x0050, 0x0051, 0x0054, 0x0055,

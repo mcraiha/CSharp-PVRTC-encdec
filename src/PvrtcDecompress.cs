@@ -4,11 +4,6 @@ namespace CSharp_PVRTC_EncDec
 {
 	public class PvrtcDecompress 
 	{
-		private int GetMortonNumber(int x, int y)
-		{
-			return MortonTable.MORTON_TABLE[x >> 8] << 17 | MortonTable.MORTON_TABLE[y >> 8] << 16 | MortonTable.MORTON_TABLE[x & 0xFF] << 1 | MortonTable.MORTON_TABLE[y & 0xFF];
-		}
-
 		// This function assumes that input texture is square! (width == height)
 		public TempByteImageFormat DecodeRgb4Bpp(byte[] data, int width)
 		{
@@ -35,7 +30,7 @@ namespace CSharp_PVRTC_EncDec
 				{
 					currentFactorIndex = 0;
 
-					PvrtcPacket packet = packets[this.GetMortonNumber(x, y)];
+					PvrtcPacket packet = packets[MortonTable.GetMortonNumber(x, y)];
 					
 					uint mod = packet.GetModulationData();
 					
@@ -51,10 +46,10 @@ namespace CSharp_PVRTC_EncDec
 							int x0 = (x + xOffset) & blockMask;
 							int x1 = (x0+1) & blockMask;
 
-							PvrtcPacket p0 = packets[this.GetMortonNumber(x0, y0)];
-							PvrtcPacket p1 = packets[this.GetMortonNumber(x1, y0)];
-							PvrtcPacket p2 = packets[this.GetMortonNumber(x0, y1)];
-							PvrtcPacket p3 = packets[this.GetMortonNumber(x1, y1)];
+							PvrtcPacket p0 = packets[MortonTable.GetMortonNumber(x0, y0)];
+							PvrtcPacket p1 = packets[MortonTable.GetMortonNumber(x1, y0)];
+							PvrtcPacket p2 = packets[MortonTable.GetMortonNumber(x0, y1)];
+							PvrtcPacket p3 = packets[MortonTable.GetMortonNumber(x1, y1)];
 
 							byte[] currentFactors = PvrtcPacket.BILINEAR_FACTORS[currentFactorIndex];
 							
@@ -112,7 +107,7 @@ namespace CSharp_PVRTC_EncDec
 				{
 					currentFactorIndex = 0;
 					
-					PvrtcPacket packet = packets[this.GetMortonNumber(x, y)];
+					PvrtcPacket packet = packets[MortonTable.GetMortonNumber(x, y)];
 					
 					uint mod = packet.GetModulationData();
 					
@@ -128,10 +123,10 @@ namespace CSharp_PVRTC_EncDec
 							int x0 = (x + xOffset) & blockMask;
 							int x1 = (x0+1) & blockMask;
 							
-							PvrtcPacket p0 = packets[this.GetMortonNumber(x0, y0)];
-							PvrtcPacket p1 = packets[this.GetMortonNumber(x1, y0)];
-							PvrtcPacket p2 = packets[this.GetMortonNumber(x0, y1)];
-							PvrtcPacket p3 = packets[this.GetMortonNumber(x1, y1)];
+							PvrtcPacket p0 = packets[MortonTable.GetMortonNumber(x0, y0)];
+							PvrtcPacket p1 = packets[MortonTable.GetMortonNumber(x1, y0)];
+							PvrtcPacket p2 = packets[MortonTable.GetMortonNumber(x0, y1)];
+							PvrtcPacket p3 = packets[MortonTable.GetMortonNumber(x1, y1)];
 
 							byte[] currentFactors = PvrtcPacket.BILINEAR_FACTORS[currentFactorIndex];
 							
