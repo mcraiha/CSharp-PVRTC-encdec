@@ -2,6 +2,9 @@
 
 C# managed **PVRTC encoder/decoder library**. This is a C# implementation of [PVRTC texture format](http://en.wikipedia.org/wiki/PVRTC) compression and decompression. Only 4 bit modes supported.
 
+## Build status
+![](https://github.com/mcraiha/CSharp-PVRTC-encdec/workflows/.NET%20Core/badge.svg)
+
 ### Why?
 
 Because I needed this for my personal project.
