@@ -2,10 +2,10 @@ using System;
 
 namespace CSharp_PVRTC_EncDec
 {
-	public class PvrtcDecompress 
+	public static class PvrtcDecompress 
 	{
 		// This function assumes that input texture is square! (width == height)
-		public TempByteImageFormat DecodeRgb4Bpp(byte[] data, int width)
+		public static TempByteImageFormat DecodeRgb4Bpp(byte[] data, int width)
 		{
 			int size = width;
 			int blocks = size / 4;
@@ -82,7 +82,7 @@ namespace CSharp_PVRTC_EncDec
 		}
 
 		// This function assumes that input texture is square! (width == height)
-		public TempByteImageFormat DecodeRgba4Bpp(byte[] data, int width)
+		public static TempByteImageFormat DecodeRgba4Bpp(byte[] data, int width)
 		{
 			int size = width;
 			int blocks = size / 4;
