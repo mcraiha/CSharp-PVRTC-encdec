@@ -29,8 +29,6 @@ and
 
 * Performance could be better
 * There could be a multithreaded version of encoder/decoder
-* Encoder could read data from FILES instead of Unity Texture2d structures
-* Decoder could guess the texture resolution from byte array size
 
 ### What it DOES NOT DO
 
