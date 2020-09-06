@@ -4,7 +4,13 @@ namespace CSharp_PVRTC_EncDec
 {
 	public static class PvrtcDecompress 
 	{
-		// This function assumes that input texture is square! (width == height)
+		/// <summary>
+		/// Decode 4 bit RGB texture from byte array
+		/// </summary>
+		/// <remarks>Assumes that input texture is square! (width == height)</remarks>
+		/// <param name="data">Byte array that contains encoded texture data</param>
+		/// <param name="width">Width of texture in pixels</param>
+		/// <returns>TempByteImageFormat</returns>
 		public static TempByteImageFormat DecodeRgb4Bpp(byte[] data, int width)
 		{
 			int size = width;
@@ -81,7 +87,13 @@ namespace CSharp_PVRTC_EncDec
 			return returnValue;
 		}
 
-		// This function assumes that input texture is square! (width == height)
+		/// <summary>
+		/// Decode 4 bit RGBA texture from byte array
+		/// </summary>
+		/// <remarks>Assumes that input texture is square! (width == height)</remarks>
+		/// <param name="data">Byte array that contains encoded texture data</param>
+		/// <param name="width">Width of texture in pixels</param>
+		/// <returns>TempByteImageFormat</returns>
 		public static TempByteImageFormat DecodeRgba4Bpp(byte[] data, int width)
 		{
 			int size = width;
