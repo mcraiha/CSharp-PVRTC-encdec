@@ -79,8 +79,8 @@ namespace CSharp_PVRTC_EncDec
 
 					PvrtcPacket packet = packets[MortonTable.GetMortonNumber(x, y)];
 					packet.SetPunchthroughAlpha(false);
-					packet.SetColorA(minColor[0], minColor[1], minColor[2]);
-					packet.SetColorB(maxColor[0], maxColor[1], maxColor[2]);
+					packet.SetColorA(minColor[0], minColor[1], minColor[2], minColor[3]);
+					packet.SetColorB(maxColor[0], maxColor[1], maxColor[2], maxColor[3]);
 				}
 			}
 
