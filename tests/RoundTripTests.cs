@@ -42,6 +42,37 @@ namespace tests
 		}
 
 		[Test]
+		public void EncodeOneBlockPureWhiteRGBAThenDecodeIt()
+		{
+			// Arrange
+			const int width = 4; // One block is 4x4
+			const int height = 4;
+			const int channelsPerPixel = 4;
+			byte[] whiteRGB = new byte[] { 255, 255, 255, 255 };
+			byte[,,] pixels = new byte[width, height, channelsPerPixel] {
+				{ { 255, 255, 255, 255 }, { 255, 255, 255, 255 }, { 255, 255, 255, 255 }, { 255, 255, 255, 255 }},
+				{ { 255, 255, 255, 255 }, { 255, 255, 255, 255 }, { 255, 255, 255, 255 }, { 255, 255, 255, 255 }},
+				{ { 255, 255, 255, 255 }, { 255, 255, 255, 255 }, { 255, 255, 255, 255 }, { 255, 255, 255, 255 }},
+				{ { 255, 255, 255, 255 }, { 255, 255, 255, 255 }, { 255, 255, 255, 255 }, { 255, 255, 255, 255 }},
+			};
+			TempByteImageFormat image = new TempByteImageFormat(pixels);
+
+			// Act
+			byte[] encodedBytes = PvrtcCompress.EncodeRgba4Bpp(image);
+
+			TempByteImageFormat decoded = PvrtcDecompress.DecodeRgba4Bpp(encodedBytes, width);
+			byte[] firstPixel = decoded.GetPixelChannels(0, 0);
+
+			// Assert
+			Assert.AreEqual(8, encodedBytes.Length);
+			
+			Assert.AreEqual(width, decoded.GetWidth());
+			Assert.AreEqual(height, decoded.GetHeight());
+			Assert.AreEqual(channelsPerPixel, decoded.GetChannelsPerPixel());
+			CollectionAssert.AreEqual(whiteRGB, firstPixel);
+		}
+
+		[Test]
 		public void EncodeFourBlocksPureBlackRGBThenDecodeIt()
 		{
 			// Arrange
