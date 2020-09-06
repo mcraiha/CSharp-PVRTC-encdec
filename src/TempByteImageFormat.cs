@@ -81,7 +81,7 @@ namespace CSharp_PVRTC_EncDec
         {
             for (int i = 0; i < this.channelsPerPixel; i++)
             {
-                this.content[x, y, i] = (byte)newValues[i];
+                this.content[x, y, i] = newValues[i];
             }
         }
 
