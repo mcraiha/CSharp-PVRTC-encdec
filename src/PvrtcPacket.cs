@@ -3,7 +3,7 @@ using System.Collections.Specialized;
 
 namespace CSharp_PVRTC_EncDec
 {
-	public class PvrtcPacket 
+	public sealed class PvrtcPacket 
 	{
 		public static readonly byte[][] BILINEAR_FACTORS = 
 		{
