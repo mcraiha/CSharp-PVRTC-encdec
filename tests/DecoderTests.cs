@@ -25,5 +25,21 @@ namespace tests
 
 			// Assert
 		}
+
+		[Test]
+		public void DecodeRGBTextureFromByteArray()
+		{
+			// Arrange
+			byte[] input = new byte[8] { 0, 0, 0, 0, 254, 255, 255, 255 };
+			int width = 4;
+			byte[] whiteRGB = new byte[] { 255, 255, 255 };
+
+			// Act
+			TempByteImageFormat temp = PvrtcDecompress.DecodeRgb4Bpp(input, width);
+			byte[] firstPixel = temp.GetPixelChannels(0, 0);
+
+			// Assert
+			CollectionAssert.AreEqual(whiteRGB, firstPixel);
+		}
 	}
 }
