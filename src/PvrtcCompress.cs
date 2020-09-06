@@ -49,6 +49,12 @@ namespace CSharp_PVRTC_EncDec
 			return (minColor, maxColor);
 		}
 
+		/// <summary>
+		/// Encodes RGBA texture into byte array
+		/// </summary>
+		/// <remarks>Texture must be square and power of two dimensions</remarks>
+		/// <param name="bitmap">TempByteImageFormat</param>
+		/// <returns>Byte array</returns>
 		public static byte[] EncodeRgba4Bpp(TempByteImageFormat bitmap)
 		{
 			if (bitmap.height != bitmap.width) 
@@ -159,7 +165,12 @@ namespace CSharp_PVRTC_EncDec
 			return returnValue;
 		}
 
-
+		/// <summary>
+		/// Encodes RGB texture into byte array
+		/// </summary>
+		/// <remarks>Texture must be square and power of two dimensions</remarks>
+		/// <param name="bitmap">TempByteImageFormat</param>
+		/// <returns>Byte array</returns>
 		public static byte[] EncodeRgb4Bpp(TempByteImageFormat bitmap)
 		{
 			if (bitmap.height != bitmap.width) 
