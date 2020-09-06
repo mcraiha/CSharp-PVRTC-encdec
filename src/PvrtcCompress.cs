@@ -2,9 +2,9 @@ using System;
 
 namespace CSharp_PVRTC_EncDec
 {
-	public class PvrtcCompress  
+	public static class PvrtcCompress  
 	{
-		private (byte[] minColor, byte[] maxColor) GetMinMaxColors(TempByteImageFormat bitmap, int startX, int startY)
+		private static (byte[] minColor, byte[] maxColor) GetMinMaxColors(TempByteImageFormat bitmap, int startX, int startY)
 		{
 			byte[] minColor = CommonColors.GetAllMax(3);
 			byte[] maxColor = CommonColors.GetAllMin(3);
@@ -26,7 +26,7 @@ namespace CSharp_PVRTC_EncDec
 			return (minColor, maxColor);
 		}
 
-		private (byte[] minColor, byte[] maxColor) GetMinMaxColorsWithAlpha(TempByteImageFormat bitmap, int startX, int startY)
+		private static (byte[] minColor, byte[] maxColor) GetMinMaxColorsWithAlpha(TempByteImageFormat bitmap, int startX, int startY)
 		{
 			byte[] minColor = CommonColors.GetAllMax(4);
 			byte[] maxColor = CommonColors.GetAllMin(4);
@@ -49,7 +49,7 @@ namespace CSharp_PVRTC_EncDec
 			return (minColor, maxColor);
 		}
 
-		public byte[] EncodeRgba4Bpp(TempByteImageFormat bitmap)
+		public static byte[] EncodeRgba4Bpp(TempByteImageFormat bitmap)
 		{
 			if (bitmap.height != bitmap.width) 
 			{
@@ -75,7 +75,7 @@ namespace CSharp_PVRTC_EncDec
 			{
 				for (int x = 0; x < blocks; ++x)
 				{
-					(byte[] minColor, byte[] maxColor) = this.GetMinMaxColorsWithAlpha(bitmap, 4*x, 4*y);				
+					(byte[] minColor, byte[] maxColor) = GetMinMaxColorsWithAlpha(bitmap, 4*x, 4*y);				
 
 					PvrtcPacket packet = packets[MortonTable.GetMortonNumber(x, y)];
 					packet.SetPunchthroughAlpha(false);
@@ -160,7 +160,7 @@ namespace CSharp_PVRTC_EncDec
 		}
 
 
-		public byte[] EncodeRgb4Bpp(TempByteImageFormat bitmap)
+		public static byte[] EncodeRgb4Bpp(TempByteImageFormat bitmap)
 		{
 			if (bitmap.height != bitmap.width) 
 			{
@@ -186,7 +186,7 @@ namespace CSharp_PVRTC_EncDec
 			{
 				for(int x = 0; x < blocks; ++x)
 				{
-					(byte[] minColor, byte[] maxColor) = this.GetMinMaxColors(bitmap, 4*x, 4*y);
+					(byte[] minColor, byte[] maxColor) = GetMinMaxColors(bitmap, 4*x, 4*y);
 
 					PvrtcPacket packet = packets[MortonTable.GetMortonNumber(x, y)];
 					packet.SetPunchthroughAlpha(false);
