@@ -24,6 +24,8 @@ namespace tests
 			TempByteImageFormat temp = PvrtcDecompress.DecodeRgb4Bpp(array, 512);
 
 			// Assert
+			Assert.AreEqual(512, temp.GetWidth());
+			Assert.AreEqual(512, temp.GetHeight());
 		}
 
 		[Test]
