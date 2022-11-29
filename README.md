@@ -38,8 +38,8 @@ and
 
 ### License
 
-This C# version is under [BSD License](LICENSE). That is because original C++ version is under [BSD License](https://bitbucket.org/jthlim/pvrtccompressor/src/cf7177748ee0dcdccfe89716dc11a47d2dc81af5/LICENSE.TXT?at=default&fileviewer=file-view-default).
+This C# version is under [BSD License](LICENSE). That is because original C++ version was under BSD License.
 
 ### Thanks
 
-**jthlim** and **Brendan Duncan** who made the [C++ implementation](https://bitbucket.org/jthlim/pvrtccompressor) that I shamelessly ported to C#.
+**jthlim** and **Brendan Duncan** who made the [C++ implementation](https://web.archive.org/web/20160607221515/https://bitbucket.org/jthlim/pvrtccompressor) that I shamelessly ported to C#.
