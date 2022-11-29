@@ -1,8 +1,8 @@
 namespace CSharp_PVRTC_EncDec
 {
 
-	public readonly struct Vector4Int {
-
+	public readonly struct Vector4Int 
+	{
 		public readonly int x;
 		public readonly int y;
 		public readonly int z;
