@@ -20,7 +20,7 @@ namespace tests
 
 			// Act
 			pvrStream.Seek(0x44, SeekOrigin.Begin);
-			pvrStream.Read(array, 0, array.Length);
+			pvrStream.ReadExactly(array, 0, array.Length);
 			TempByteImageFormat temp = PvrtcDecompress.DecodeRgb4Bpp(array, 512);
 
 			// Assert
