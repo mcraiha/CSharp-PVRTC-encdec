@@ -15,7 +15,6 @@ You can do runtime PVRTC compression in your app/software. This could be handy i
 
 ### How to use
 
-
 important functions are 
 **EncodeRgb4Bpp(Texture2D bitmap)**
 

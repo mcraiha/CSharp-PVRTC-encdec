@@ -1,6 +1,5 @@
 namespace CSharp_PVRTC_EncDec
 {
-
 	/// <summary>
 	/// Morton space filling curve, see https://en.wikipedia.org/wiki/Z-order_curve
 	/// </summary>

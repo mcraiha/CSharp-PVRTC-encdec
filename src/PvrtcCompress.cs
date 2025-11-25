@@ -81,7 +81,7 @@ namespace CSharp_PVRTC_EncDec
 			{
 				for (int x = 0; x < blocks; ++x)
 				{
-					(byte[] minColor, byte[] maxColor) = GetMinMaxColorsWithAlpha(bitmap, 4*x, 4*y);				
+					(byte[] minColor, byte[] maxColor) = GetMinMaxColorsWithAlpha(bitmap, 4*x, 4*y);
 
 					PvrtcPacket packet = packets[MortonTable.GetMortonNumber(x, y)];
 					packet.SetPunchthroughAlpha(false);
@@ -100,13 +100,13 @@ namespace CSharp_PVRTC_EncDec
 					
 					uint modulationData = 0;
 					
-					for(int py = 0; py < 4; ++py)
+					for (int py = 0; py < 4; ++py)
 					{
 						int yOffset = (py < 2) ? -1 : 0;
 						int y0 = (y + yOffset) & blockMask;
 						int y1 = (y0+1) & blockMask;
 						
-						for(int px = 0; px < 4; ++px)
+						for (int px = 0; px < 4; ++px)
 						{
 							int xOffset = (px < 2) ? -1 : 0;
 							int x0 = (x + xOffset) & blockMask;
@@ -270,7 +270,7 @@ namespace CSharp_PVRTC_EncDec
 				}
 			}
 
-			byte[] returnValue = new byte[size * size /2];
+			byte[] returnValue = new byte[size * size / 2];
 
 			// Create final byte array from PVRTC packets
 			for (int i = 0; i < packets.Length; i++)
