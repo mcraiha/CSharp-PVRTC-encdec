@@ -3,6 +3,7 @@
 C# managed **PVRTC encoder/decoder library**. This is a C# implementation of [PVRTC texture format](http://en.wikipedia.org/wiki/PVRTC) compression and decompression. Only 4 bit modes supported.
 
 ## Build status
+
 ![](https://github.com/mcraiha/CSharp-PVRTC-encdec/workflows/.NET%20Core/badge.svg)
 
 ### Why?
@@ -16,13 +17,13 @@ You can do runtime PVRTC compression in your app/software. This could be handy i
 ### How to use
 
 important functions are 
-**EncodeRgb4Bpp(Texture2D bitmap)**
+`EncodeRgb4Bpp(Texture2D bitmap)`
 
-**EncodeRgba4Bpp(Texture2D bitmap)** 
+`EncodeRgba4Bpp(Texture2D bitmap)`
 and
-**DecodeRgb4Bpp(byte[] data, int width)**
+`DecodeRgb4Bpp(byte[] data, int width)`
 
-**DecodeRgba4Bpp(byte[] data, int width)**
+`DecodeRgba4Bpp(byte[] data, int width)`
 
 ### What could be better
 
