@@ -1,37 +1,35 @@
-namespace CSharp_PVRTC_EncDec
+namespace CSharp_PVRTC_EncDec;
+
+public readonly struct Vector3Int 
 {
+	public readonly int x;
+	public readonly int y;
+	public readonly int z;
 
-	public readonly struct Vector3Int 
+	public Vector3Int(int xx, int yy, int zz)
 	{
-		public readonly int x;
-		public readonly int y;
-		public readonly int z;
+		this.x = xx;
+		this.y = yy;
+		this.z = zz;
+	}
 
-		public Vector3Int(int xx, int yy, int zz)
-		{
-			this.x = xx;
-			this.y = yy;
-			this.z = zz;
-		}
+	public static Vector3Int operator *(Vector3Int a, int b)
+	{
+		return new Vector3Int (a.x * b, a.y * b, a.z * b);
+	}
 
-		public static Vector3Int operator *(Vector3Int a, int b)
-		{
-			return new Vector3Int (a.x * b, a.y * b, a.z * b);
-		}
+	public static Vector3Int operator +(Vector3Int a, Vector3Int b)
+	{
+		return new Vector3Int (a.x + b.x, a.y + b.y, a.z + b.z);
+	}
 
-		public static Vector3Int operator +(Vector3Int a, Vector3Int b)
-		{
-			return new Vector3Int (a.x + b.x, a.y + b.y, a.z + b.z);
-		}
+	public static Vector3Int operator -(Vector3Int a, Vector3Int b)
+	{
+		return new Vector3Int (a.x - b.x, a.y - b.y, a.z - b.z);
+	}
 
-		public static Vector3Int operator -(Vector3Int a, Vector3Int b)
-		{
-			return new Vector3Int (a.x - b.x, a.y - b.y, a.z - b.z);
-		}
-
-		public static int operator %(Vector3Int a, Vector3Int b)
-		{
-			return a.x * b.x + a.y * b.y + a.z * b.z;
-		}
+	public static int operator %(Vector3Int a, Vector3Int b)
+	{
+		return a.x * b.x + a.y * b.y + a.z * b.z;
 	}
 }
