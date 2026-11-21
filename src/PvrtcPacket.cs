@@ -43,12 +43,12 @@ public sealed class PvrtcPacket
 		new byte[] { 0, 8, 0, 8 },
 	};
 
-	uint modulationData;
-	bool usePunchthroughAlpha;
-	bool colorAIsOpaque;
-	bool colorBIsOpaque;
-	uint colorA;
-	uint colorB;
+	private uint modulationData;
+	private bool usePunchthroughAlpha;
+	private bool colorAIsOpaque;
+	private bool colorBIsOpaque;
+	private uint colorA;
+	private uint colorB;
 
 	public PvrtcPacket()
 	{
